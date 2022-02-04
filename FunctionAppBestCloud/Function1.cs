@@ -21,6 +21,8 @@ namespace FunctionApp2
     public static class Function1
     {
         [FunctionName("Function1")]
+        
+        //http triiger fonskiyonu.sadece get metodu alıyor.
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", Route = "temperature")] HttpRequest req,
             ILogger log)
@@ -28,12 +30,15 @@ namespace FunctionApp2
             log.LogInformation("C# HTTP trigger function processed a request.");
 
 
-
+            // istenilen yeri kullanıcadan almak için city değişkenini kullanıyoruz.
             string city = req.Query["city"];
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
             dynamic data = JsonConvert.DeserializeObject(requestBody);
             city = city ?? data?.city;
+            //wheather api ile gerekli bilgileri çekiyoruz
             string uri = String.Format("http://api.openweathermap.org/data/2.5/weather?q=" + city + "&mode=xml&appid=4238ec8727d226cd414e33119add4e34");
+            
+            //api dan gelen xml dosyasını stringe çevirip oluşturacağımız listin içine atıyoruz ve veri kullanıma hazır hale geliyor 
             XmlTextReader reader = new XmlTextReader(uri);
             List<string> mylist = new List<string>();
 
@@ -69,7 +74,7 @@ namespace FunctionApp2
                 }
 
             }
-
+            //isim ve soyad verisini json a çevirme
             string jsonData = @"{'FirstName':'Roy','LastName':'Polat'}";
             
 
