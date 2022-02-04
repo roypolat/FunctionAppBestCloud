@@ -22,7 +22,7 @@ namespace FunctionApp2
     {
         [FunctionName("Function1")]
         
-        //http triiger fonskiyonu.sadece get metodu alıyor.
+        //http trigger fonskiyonu.sadece get metodu alıyor.
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", Route = "temperature")] HttpRequest req,
             ILogger log)
