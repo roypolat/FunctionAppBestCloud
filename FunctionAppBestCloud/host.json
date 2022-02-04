@@ -1,0 +1,26 @@
+{
+
+  "version": "2.0",
+  "logging": {
+    "applicationInsights": {
+      "samplingSettings": {
+        "isEnabled": true,
+        "excludedTypes": "Request"
+      }
+    }
+  },
+  "configurations": [
+    {
+      "name": ".NET Core Launch (console)",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build",
+      "program": "${workspaceFolder}/trigger_management/bin/Debug/trigger_management.exe",
+      "args": [],
+      "cwd": "${workspaceFolder}/trigger_management/bin/Debug",
+      "console": "internalConsole",
+      "stopAtEntry": false
+    }
+  ]
+
+}

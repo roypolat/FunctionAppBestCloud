@@ -1,0 +1,13 @@
+{
+  "profiles": {
+    "FunctionAppBestCloud": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
+      "httpPort": 34503,
+      "useSSL": false
+    }
+  }
+}
