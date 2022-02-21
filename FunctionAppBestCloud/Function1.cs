@@ -36,7 +36,7 @@ namespace FunctionApp2
             dynamic data = JsonConvert.DeserializeObject(requestBody);
             city = city ?? data?.city;
             //wheather api ile gerekli bilgileri çekiyoruz
-            string uri = String.Format("http://api.openweathermap.org/data/2.5/weather?q=" + city + "&mode=xml&appid=4238ec8727d226cd414e33119add4e34");
+            string uri = String.Format("http://api.openweathermap.org/data/2.5/weather?q=" + city + "&mode=xml&appid=addYourApiId");
             
             //api dan gelen xml dosyasını stringe çevirip oluşturacağımız listin içine atıyoruz ve veri kullanıma hazır hale geliyor 
             XmlTextReader reader = new XmlTextReader(uri);
